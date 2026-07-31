@@ -1,11 +1,10 @@
-/* ===========================   RESET=========================== */
 *{    margin:0;    padding:0;    box-sizing:border-box;}
 html{    scroll-behavior:smooth;}
 body{    background:#121214;    color:#fff;    font-family:'Inter',sans-serif;    overflow-x:hidden;}
 a{    text-decoration:none;    color:inherit;}
 button{    border:none;    cursor:pointer;    background:none;    font-family:inherit;}
 img{    display:block;    width:100%;}
-/* ===========================   CORES=========================== */
+/* ===========================  cores principais =========================== */
 :root{
     --bg:#121214;
     --card:#1A1A1C;
@@ -14,12 +13,12 @@ img{    display:block;    width:100%;}
     --white:#ffffff;
     --text:#d8d8d8;
 }
-/* ===========================        HERO=========================== */
+/* ===========================  heroo =========================== */
 .hero{
     position:relative;
     width:100%;
     height:100vh;
-    background-image:url("../img/background.jpg");
+    background-image:url("../imagem\ principal\ home\ page.jpg");
     background-size:cover;
     background-position:center;
     display:flex;
