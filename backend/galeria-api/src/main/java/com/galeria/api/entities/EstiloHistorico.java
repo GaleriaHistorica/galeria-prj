@@ -16,7 +16,7 @@ public class EstiloHistorico {
 
 	private String nome;
 	
-	private String data;
+	private String periodo;
 	
 	private String descricao;
 
@@ -26,7 +26,7 @@ public class EstiloHistorico {
 	public EstiloHistorico(String nome, String data, String descricao) {
 		this.nome = nome;
 		this.descricao = descricao;
-		this.data = data;
+		this.periodo = periodo;
 	}
 	public Long getId() {
 		return id;
@@ -40,11 +40,11 @@ public class EstiloHistorico {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getData() {
-		return data;
+	public String getPeriodo() {
+		return periodo;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setPeriodo(String periodo) {
+		this.periodo = periodo;
 	}
 	public String getDescricao() {
 		return descricao;

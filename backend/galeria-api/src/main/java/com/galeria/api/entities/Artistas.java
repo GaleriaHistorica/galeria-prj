@@ -31,8 +31,8 @@ public class Artistas {
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String nascimento;
 	
-	@Column(name = "local_nascimento", nullable = false, precision = 10, scale = 2)
-	private String localNascimento;
+	@Column(name = "nacionalidade", nullable = false, precision = 10, scale = 2)
+	private String nacionalidade;
 	
 	@Column(nullable = false, precision = 10, scale = 2)
 	private String descricao;
@@ -43,7 +43,7 @@ public class Artistas {
 	public Artistas(String nome, String nascimento, String localNascimento, String descricao) {
 		this.nome = nome;
 		this.nascimento = nascimento;
-		this.localNascimento = localNascimento;
+		this.nacionalidade = nacionalidade;
 		this.descricao = descricao;
 	}
 	public Long getId() {
@@ -65,10 +65,10 @@ public class Artistas {
 		this.nascimento = nascimento;
 	}
 	public String getLocalNascimento() {
-		return localNascimento;
+		return nacionalidade;
 	}
-	public void setLocalNascimento(String localNascimento) {
-		this.localNascimento = localNascimento;
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
 	}
 	public String getDescricao() {
 		return descricao;
