@@ -5,27 +5,30 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.galeria.api.entities.Obras;
+import com.galeria.api.repositories.ObrasRepository;
+
 @Service
 public class ObraService {
 
 	@Autowired
-	private ObraRepository repository;
+	private ObrasRepository repository;
 	
-	public List<Obra> listarTodos() {
+	public List<Obras> listarTodos() {
 		return repository.findAll();
 	}
 	
-	public Obra buscarPorId(Long id) {
-		return repository.findById(id).orElse(null);
+	public Obras buscarPorId(Long id) {
+		return repository.findById(id).orElseThrow(() -> new RuntimeException("Estilo não encontrado"));
 	}
 	
-	public Obra salvar(Obra obra) {
+	public Obras salvar(Obras obra) {
 		return repository.save(obra);
 	}
 	
-	public Obra atualizar(Long id, Obra obra) {
-		obra.setId(id);
-		return repository.save(obra);
+	public Obras atualizar(Long id, Obras obra) {
+		Obras obraAntiga = buscarPorId(id);
+		return repository.save(obraAntiga);
 	}
 	
 	public void excluir(Long id) {

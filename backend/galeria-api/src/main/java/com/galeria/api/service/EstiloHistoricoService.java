@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.galeria.api.entities.EstiloHistorico;
+import com.galeria.api.repositories.EstiloHistoricoRepository;
 
 @Service
 public class EstiloHistoricoService {
@@ -18,7 +19,7 @@ public class EstiloHistoricoService {
 	}
 	
 	public EstiloHistorico buscarPorId(Long id) {
-		return repository.findById(id).orElse(null);
+		return repository.findById(id).orElseThrow(() -> new RuntimeException("Estilo não encontrado"));
 	}
 	
 	public EstiloHistorico salvar(EstiloHistorico estilo) {
@@ -26,8 +27,8 @@ public class EstiloHistoricoService {
 	}
 	
 	public EstiloHistorico atualizar(Long id, EstiloHistorico estilo) {
-		estilo.setId(id);
-		return repository.save(estilo);
+		EstiloHistorico estiloAntigo = buscarPorId(id);
+		return repository.save(estiloAntigo);
 	}
 	
 	public void excluir(Long id) {
