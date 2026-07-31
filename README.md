@@ -1,4 +1,4 @@
-# galeria prj
+# projeto galeria de arte histórica
 
 ![Java](https://img.shields.io/badge/javafx-%23FF0000.svg?style=for-the-badge&logo=javafx&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
