@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Períodos Históricos | Galeria de Artes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/estilohistorico.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html">GALERIA DE ARTES</a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">INÍCIO</a></li>
+            <li><a href="obras.html">OBRAS</a></li>
+            <li><a href="artistas.html">ARTISTAS</a></li>
+            <li><a class="ativo" href="periodos.html">PERÍODOS HISTÓRICOS</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="banner">
+    <div class="banner-conteudo">
+        <h1>PERÍODOS HISTÓRICOS</h1>
+        <div class="linha-dourada-losango"></div>
+        <p>Explore as grandes eras e movimentos artísticos<br>que moldaram a história da humanidade.</p>
+    </div>
+</section>
+
+<section class="filtros-container">
+    <div class="campo-pesquisa">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="buscar" placeholder="Buscar período histórico ou movimento...">
+    </div>
+
+    <div class="selects-filtros">
+        <div class="custom-select">
+            <select id="filtroEra">
+                <option value="">Todas as eras</option>
+                <option value="antiga">Idade Antiga</option>
+                <option value="media">Idade Média</option>
+                <option value="moderna">Idade Moderna</option>
+                <option value="contemporanea">Idade Contemporânea</option>
+            </select>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div id="listaPeriodos" class="grid-periodos">
+     
+    </div>
+</main>
+
+<div class="modal" id="modalPeriodo">
+    <div class="modal-content">
+        
+        <button id="fecharModal" class="btn-fechar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>EDITAR PERÍODO HISTÓRICO</h2>
+        <div class="linha-dourada-losango"></div>
+
+        <form id="formPeriodo" class="modal-grid">
+        
+            <div class="coluna-imagem">
+                <label class="label-titulo">IMAGEM ILUSTRATIVA</label>
+                <div class="preview-box">
+                    <img id="imagemPreview" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg" alt="Renascimento">
+                </div>
+                <input type="file" id="imagemInput" accept="image/*" hidden>
+                <button type="button" id="btnAlterarImagem" class="btn-outline">
+                    <i class="fa-solid fa-camera"></i> ALTERAR IMAGEM
+                </button>
+                <p class="instrucoes-file">Formatos aceitos: JPG, PNG. Máx. 5MB</p>
+            </div>
+
+            <!-- Coluna Direita: Campos do Fluxograma -->
+            <div class="coluna-campos">
+                
+                <div class="campo-grupo">
+                    <label for="tituloPeriodo">TÍTULO DO PERÍODO</label>
+                    <input type="text" id="tituloPeriodo" value="Renascimento">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="anoDataPeriodo">ANO OU DATA</label>
+                    <input type="text" id="anoDataPeriodo" value="1300 - 1600">
+                    <span class="dica-input">Informe o intervalo do período em anos (somente números e hífen).</span>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="movimentoArtistico">MOVIMENTO ARTÍSTICO</label>
+                    <input type="text" id="movimentoArtistico" value="Renascimento Cultural e Artístico">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="subperiodo">SUBPERÍODOS (SE HOUVER)</label>
+                    <input type="text" id="subperiodo" value="Trecento, Quattrocento e Cinquecento">
+                    <span class="dica-input">Acrescente os subperíodos ou contexto.</span>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="eraCronologica">ERA CRONOLÓGICA</label>
+                    <div class="custom-select modal-select">
+                        <select id="eraCronologica">
+                            <option value="moderna">Idade Moderna</option>
+                            <option value="antiga">Idade Antiga</option>
+                            <option value="media">Idade Média</option>
+                            <option value="contemporanea">Idade Contemporânea</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="descricaoPeriodo">DESCRIÇÃO DO PERÍODO</label>
+                    <textarea id="descricaoPeriodo" rows="4">Movimento cultural e artístico marcado pelo resgate dos valores da Antiguidade Clássica e pelo Antropocentrismo.</textarea>
+                </div>
+
+            </div>
+        </form>
+
+        <div class="linha-dourada-losango inferior"></div>
+
+        <div class="botoes-modal">
+            <button type="button" class="btn-cancelar">CANCELAR</button>
+            <button type="submit" form="formPeriodo" class="btn-salvar">SALVAR ALTERAÇÕES</button>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/periodos.js"></script>
+</body>
+
+</html>
