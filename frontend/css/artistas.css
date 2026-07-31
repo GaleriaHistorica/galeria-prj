@@ -1,4 +1,3 @@
-/* ======================================================   RESET====================================================== */
 *{    margin:0;    padding:0;    box-sizing:border-box;}
 html{    scroll-behavior:smooth;}
 body{
@@ -19,7 +18,7 @@ button{
     cursor:pointer;
     font-family:inherit;
 }
-/* ======================================================   CORES====================================================== */
+
 :root{
     --bg:#131315;
     --card:#1B1B1D;
@@ -28,7 +27,7 @@ button{
     --border:#323236;
     --text:#CFCFCF;
 }
-/* ======================================================   HEADER====================================================== */
+
 header{
     width:100%;
     height:82px;
@@ -79,12 +78,12 @@ nav a.ativo::after{
     left:50%;
     transform:translateX(-50%);
 }
-/* ======================================================   BANNER====================================================== */
+
 .banner{
     margin-top:82px;
     width:100%;
     height:420px;
-    background-image:url("../img/banner-artistas.jpg");
+    background-image:url("../imagem\ principal\ home\ page.jpg");
     background-size:cover;
     background-position:center;
     position:relative;
@@ -135,7 +134,7 @@ nav a.ativo::after{
     font-size:1.2rem;
     line-height:1.8;
 }
-/* ======================================================   PESQUISA====================================================== */
+
 .pesquisa{
     width:100%;
     padding:45px 70px 30px;
@@ -171,7 +170,7 @@ nav a.ativo::after{
 .campo-pesquisa input::placeholder{
     color:#8E8E8E;
 }
-/* ======================================================   LISTAGEM====================================================== */
+
 main{
     width:100%;
     padding:0 70px 90px;
@@ -181,7 +180,7 @@ main{
     grid-template-columns:repeat(auto-fill,minmax(430px,1fr));
     gap:28px;
 }
-/* ======================================================   CARD DO ARTISTA====================================================== */
+
 .card-artista{
     background:var(--card);
     display:flex;
@@ -226,7 +225,7 @@ main{
     line-height:1.8;
     font-size:1rem;
 }
-/* ======================================================   LIXEIRA====================================================== */
+
 .btn-excluir{
     position:absolute;
     top:15px;
@@ -248,7 +247,7 @@ main{
     color:white;
     transform:scale(1.08);
 }
-/* ======================================================   MODAL====================================================== */
+
 .modal{
     position:fixed;
     inset:0;
@@ -354,7 +353,7 @@ main{
     border:none;
     color:var(--gold);
 }
-/* ======================================================   BOTÕES====================================================== */
+
 .linha-modal-inferior{
     width:100%;
     height:1px;
@@ -392,7 +391,7 @@ main{
 #salvar:hover{
     filter:brightness(1.1);
 }
-/* ======================================================   ALERTA====================================================== */
+
 .alerta{
     position:fixed;
     inset:0;
@@ -441,7 +440,7 @@ main{
     background:#B32121;
     color:white;
 }
-/* ======================================================   FOOTER====================================================== */
+
 footer{
     border-top:1px solid rgba(197,150,58,.18);
     padding:40px 20px;
@@ -472,7 +471,7 @@ footer{
 footer p{
     color:#8F8F8F;
 }
-/* ======================================================   RESPONSIVIDADE====================================================== */
+
 @media(max-width:1100px){
     .modal-grid{
         grid-template-columns:1fr;
@@ -505,9 +504,7 @@ footer p{
         width:100%;
         height:320px;
     }
-}/*=========================
-    TOAST
-=========================*/
+}
 
 .toast{
 
@@ -553,9 +550,6 @@ footer p{
 
 }
 
-/*=========================
-    ANIMAÇÃO DOS CARDS
-=========================*/
 
 .card-artista{
 
