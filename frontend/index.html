@@ -1,13 +1,14 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria de Artes</title>
-    <!-- Google Fonts -->    <link rel="preconnect" href="https://fonts.googleapis.com">    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Icons -->    <link rel="stylesheet"        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-    <!-- CSS -->    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- ================= HERO ================= -->
+    
+    <!-- ================= Hero ================= -->
     <header class="hero">
         <div class="overlay"></div>
         <div class="hero-content">
@@ -18,14 +19,16 @@
             <button id="scrollDown" class="scroll-button">                <i class="fa-solid fa-chevron-down"></i>            </button>
         </div>
     </header>
-    <!-- ================= EXPLORAR ================= -->
+
+    <!-- ================= Explorar ================= -->
     <main id="explorar">
         <section class="explorar">
             <span class="subtitulo">                EXPLORAR            </span>
             <h2>                Listagem            </h2>
             <div class="linha-pequena"></div>
             <div class="cards">
-                <!-- Obras -->
+
+                <!-- pg obras -->
                 <article class="card" onclick="abrirPagina('obras.html')">
                     <img src="img/obras.jpg" alt="Obras">
                     <div class="card-conteudo">
@@ -35,8 +38,9 @@
                         <span>                            LISTAGEM                        </span>
                     </div>
                 </article>
-                <!-- Artistas -->
-                <article class="card" onclick="abrirPagina('artistas.html')">
+
+                <!-- pg artistas -->
+                <article class="card" onclick="abrirPagina('../pages/artistas.html')">
                     <img src="img/artistas.jpg" alt="Artistas">
                     <div class="card-conteudo">
                         <i class="fa-regular fa-user"></i>
@@ -45,7 +49,8 @@
                         <span>                            LISTAGEM                        </span>
                     </div>
                 </article>
-                <!-- Períodos -->
+
+                <!-- pg períodos -->
                 <article class="card" onclick="abrirPagina('periodos.html')">
                     <img src="img/periodos.jpg" alt="Períodos">
                     <div class="card-conteudo">
@@ -60,15 +65,6 @@
             </div>
         </section>
     </main>
-    <!-- ================= FOOTER ================= -->
-    <footer>
-        <div class="linha-footer"></div>
-        <div class="social">
-            <a href="#">                <i class="fa-brands fa-instagram"></i>            </a>
-            <a href="#">                <i class="fa-brands fa-x-twitter"></i>            </a>
-            <a href="#">                <i class="fa-brands fa-facebook-f"></i>            </a>
-        </div>
-    </footer>
     <script src="js/script.js"></script>
 </body>
 </html>

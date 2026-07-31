@@ -1,0 +1,576 @@
+/* ======================================================   RESET====================================================== */
+*{    margin:0;    padding:0;    box-sizing:border-box;}
+html{    scroll-behavior:smooth;}
+body{
+    background:#131315;
+    color:#FFF;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+a{
+    text-decoration:none;
+    color:inherit;
+}
+img{
+    display:block;
+    width:100%;
+}
+button{
+    cursor:pointer;
+    font-family:inherit;
+}
+/* ======================================================   CORES====================================================== */
+:root{
+    --bg:#131315;
+    --card:#1B1B1D;
+    --gold:#C5963A;
+    --gold-light:#D4A74E;
+    --border:#323236;
+    --text:#CFCFCF;
+}
+/* ======================================================   HEADER====================================================== */
+header{
+    width:100%;
+    height:82px;
+    background:#0D0D0E;
+    border-bottom:1px solid rgba(197,150,58,.25);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 42px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    backdrop-filter:blur(8px);
+}
+.logo{
+    font-family:'Cinzel',serif;
+    font-size:2.2rem;
+    color:var(--gold);
+    letter-spacing:1px;
+}
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:55px;
+}
+nav a{
+    color:#ECECEC;
+    font-size:1rem;
+    letter-spacing:.5px;
+    padding:30px 0;
+    position:relative;
+    transition:.3s;
+}
+nav a:hover{
+    color:var(--gold);
+}
+nav a.ativo{
+    color:var(--gold);
+}
+nav a.ativo::after{
+    content:"";
+    position:absolute;
+    width:72px;
+    height:2px;
+    background:var(--gold);
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+/* ======================================================   BANNER====================================================== */
+.banner{
+    margin-top:82px;
+    width:100%;
+    height:420px;
+    background-image:url("../img/banner-artistas.jpg");
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.55);
+}
+.banner-conteudo{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+.banner h1{
+    font-family:'Cinzel',serif;
+    font-size:6rem;
+    font-weight:600;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    text-shadow:0 6px 18px rgba(0,0,0,.6);
+}
+.linha-banner{
+    width:260px;
+    height:2px;
+    background:var(--gold);
+    margin:0 auto 30px;
+    position:relative;
+}
+.linha-banner::after{
+    content:"";
+    width:10px;
+    height:10px;
+    background:var(--gold);
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+}
+.banner p{
+    width:470px;
+    max-width:90%;
+    margin:auto;
+    color:#ECECEC;
+    font-size:1.2rem;
+    line-height:1.8;
+}
+/* ======================================================   PESQUISA====================================================== */
+.pesquisa{
+    width:100%;
+    padding:45px 70px 30px;
+}
+.campo-pesquisa{
+    width:430px;
+    height:58px;
+    border:1px solid var(--border);
+    background:#19191B;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    border-radius:4px;
+    transition:.3s;
+}
+.campo-pesquisa:focus-within{
+    border-color:var(--gold);
+    box-shadow:0 0 15px rgba(197,150,58,.18);
+}
+.campo-pesquisa i{
+    color:#B7B7B7;
+    font-size:1.2rem;
+    margin-right:14px;
+}
+.campo-pesquisa input{
+    width:100%;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:1rem;
+}
+.campo-pesquisa input::placeholder{
+    color:#8E8E8E;
+}
+/* ======================================================   LISTAGEM====================================================== */
+main{
+    width:100%;
+    padding:0 70px 90px;
+}
+#listaArtistas{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(430px,1fr));
+    gap:28px;
+}
+/* ======================================================   CARD DO ARTISTA====================================================== */
+.card-artista{
+    background:var(--card);
+    display:flex;
+    overflow:hidden;
+    border-radius:6px;
+    position:relative;
+    cursor:pointer;
+    transition:.35s;
+    border:1px solid rgba(255,255,255,.04);
+}
+.card-artista:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.45);
+    border-color:rgba(197,150,58,.35);
+}
+.card-artista img{
+    width:165px;
+    height:245px;
+    object-fit:cover;
+    flex-shrink:0;
+}
+.info-artista{
+    padding:22px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+.info-artista h2{
+    font-family:'Cinzel',serif;
+    font-size:2rem;
+    font-weight:500;
+    line-height:1.15;
+    margin-bottom:15px;
+}
+.info-artista .datas{
+    color:var(--gold);
+    font-size:1rem;
+    margin-bottom:18px;
+}
+.info-artista p{
+    color:#C8C8C8;
+    line-height:1.8;
+    font-size:1rem;
+}
+/* ======================================================   LIXEIRA====================================================== */
+.btn-excluir{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,.45);
+    color:var(--gold);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1rem;
+    transition:.3s;
+}
+.btn-excluir:hover{
+    background:#B32121;
+    color:white;
+    transform:scale(1.08);
+}
+/* ======================================================   MODAL====================================================== */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+.modal.ativo{
+    display:flex;
+}
+.modal-content{
+    width:1180px;
+    max-width:95%;
+    background:#18181A;
+    border:2px solid var(--gold);
+    border-radius:12px;
+    padding:45px;
+    position:relative;
+}
+.modal-content h2{
+    text-align:center;
+    font-family:'Cinzel',serif;
+    font-size:3rem;
+    margin-bottom:18px;
+}
+.linha-modal{
+    width:180px;
+    height:2px;
+    background:var(--gold);
+    margin:0 auto 45px;
+}
+.modal-grid{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:40px;
+}
+.imagem-artista img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border:1px solid rgba(197,150,58,.45);
+    border-radius:6px;
+}
+#alterarImagem{
+    width:100%;
+    margin-top:18px;
+    height:55px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    background:transparent;
+    transition:.3s;
+    font-size:1rem;
+}
+#alterarImagem:hover{
+    background:var(--gold);
+    color:#111;
+}
+.imagem-artista p{
+    color:#8A8A8A;
+    margin-top:12px;
+    font-size:.9rem;
+}
+.formulario{
+    display:flex;
+    flex-direction:column;
+}
+.formulario label{
+    color:var(--gold);
+    margin-bottom:12px;
+    font-size:1rem;
+}
+.formulario input,
+.formulario textarea{
+    background:#232326;
+    border:1px solid #4B4B4F;
+    color:white;
+    border-radius:5px;
+    padding:18px;
+    margin-bottom:28px;
+    font-size:1rem;
+    outline:none;
+}
+.formulario input:focus,
+.formulario textarea:focus{
+    border-color:var(--gold);
+}
+.duas-colunas{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+.formulario textarea{
+    resize:none;
+}
+#fecharModal{
+    position:absolute;
+    right:28px;
+    top:28px;
+    font-size:2rem;
+    background:none;
+    border:none;
+    color:var(--gold);
+}
+/* ======================================================   BOTÕES====================================================== */
+.linha-modal-inferior{
+    width:100%;
+    height:1px;
+    background:#2F2F31;
+    margin:45px 0;
+}
+.botoes-modal{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+#cancelar,
+#salvar{
+    width:270px;
+    height:60px;
+    border-radius:6px;
+    font-size:1rem;
+    letter-spacing:1px;
+}
+#cancelar{
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold);
+}
+#cancelar:hover{
+    background:var(--gold);
+    color:#111;
+}
+#salvar{
+    background:var(--gold);
+    border:none;
+    color:#111;
+    font-weight:600;
+}
+#salvar:hover{
+    filter:brightness(1.1);
+}
+/* ======================================================   ALERTA====================================================== */
+.alerta{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:10000;
+}
+.alerta.ativo{
+    display:flex;
+}
+.alerta-box{
+    width:420px;
+    background:#1B1B1D;
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:35px;
+    text-align:center;
+}
+.alerta-box h3{
+    font-family:'Cinzel',serif;
+    margin-bottom:18px;
+}
+.alerta-box p{
+    color:#C9C9C9;
+    margin-bottom:30px;
+}
+.alerta-botoes{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+.alerta-botoes button{
+    width:150px;
+    height:48px;
+    border-radius:5px;
+}
+#naoExcluir{
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--gold);
+}
+#simExcluir{
+    border:none;
+    background:#B32121;
+    color:white;
+}
+/* ======================================================   FOOTER====================================================== */
+footer{
+    border-top:1px solid rgba(197,150,58,.18);
+    padding:40px 20px;
+    text-align:center;
+}
+.redes{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:20px;
+}
+.redes a{
+    width:46px;
+    height:46px;
+    border:1px solid #404040;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#BFBFBF;
+    transition:.3s;
+}
+.redes a:hover{
+    background:var(--gold);
+    color:#111;
+    border-color:var(--gold);
+}
+footer p{
+    color:#8F8F8F;
+}
+/* ======================================================   RESPONSIVIDADE====================================================== */
+@media(max-width:1100px){
+    .modal-grid{
+        grid-template-columns:1fr;
+    }
+    #listaArtistas{
+        grid-template-columns:1fr;
+    }
+}
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        height:auto;
+        padding:20px;
+    }
+    nav ul{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+    .banner h1{
+        font-size:3.8rem;
+    }
+    .campo-pesquisa{
+        width:100%;
+    }
+    .card-artista{
+        flex-direction:column;
+    }
+    .card-artista img{
+        width:100%;
+        height:320px;
+    }
+}/*=========================
+    TOAST
+=========================*/
+
+.toast{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    background:#C5963A;
+
+    color:#111;
+
+    padding:18px 30px;
+
+    border-radius:6px;
+
+    font-weight:600;
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.4s;
+
+    z-index:100000;
+
+}
+
+.toast.erro{
+
+    background:#B22222;
+
+    color:#FFF;
+
+}
+
+.toast.mostrar{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/*=========================
+    ANIMAÇÃO DOS CARDS
+=========================*/
+
+.card-artista{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+}
+
+.card-artista.aparecer{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:.6s;
+
+}
