@@ -29,7 +29,7 @@ public class Artistas {
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String nascimento;
 	
-	@Column(nullable = false, precision = 10, scale = 2)
+	@Column(name = "local_nascimento", nullable = false, precision = 10, scale = 2)
 	private String localNascimento;
 	
 	@Column(nullable = false, precision = 10, scale = 2)
