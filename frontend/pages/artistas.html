@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Artistas | Galeria de Artes</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <link rel="stylesheet" href="../css/artistas.css">
+
+</head>
+
+<body>
+
+<!--======================================
+HEADER
+=======================================-->
+
+<header>
+
+    <div class="logo">
+
+        <a href="../index.html">
+
+            GALERIA DE ARTES
+
+        </a>
+
+    </div>
+
+<nav>
+
+<ul>
+
+<li>
+
+<a href="../index.html">
+
+INÍCIO
+
+</a>
+
+</li>
+
+<li>
+
+<a href="obras.html">
+
+OBRAS
+
+</a>
+
+</li>
+
+<li>
+
+<a class="ativo" href="../pages/artistas.html">
+
+ARTISTAS
+
+</a>
+
+</li>
+
+<li>
+
+<a href="periodos.html">
+
+PERÍODOS HISTÓRICOS
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!--======================================
+BANNER
+=======================================-->
+
+<section class="banner">
+
+<div class="overlay"></div>
+
+<div class="banner-conteudo">
+
+<h1>
+
+ARTISTAS
+
+</h1>
+
+<div class="linha-banner"></div>
+
+<p>
+
+Conheça os artistas que deixaram
+
+sua marca na história da arte.
+
+</p>
+
+</div>
+
+</section>
+
+<!--======================================
+PESQUISA
+=======================================-->
+
+<section class="pesquisa">
+
+<div class="campo-pesquisa">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+
+type="text"
+
+id="buscar"
+
+placeholder="Buscar artista..."
+
+>
+
+</div>
+
+</section>
+
+<!--======================================
+LISTAGEM
+=======================================-->
+
+<main>
+
+<div id="listaArtistas">
+
+<!--
+
+Os cards serão criados
+
+automaticamente pelo JavaScript
+
+-->
+
+</div>
+
+</main>
+
+<!--======================================
+MODAL
+=======================================-->
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<button id="fecharModal">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<h2>
+
+EDITAR ARTISTA
+
+</h2>
+
+<div class="linha-modal"></div>
+
+<div class="modal-grid">
+
+<!-- COLUNA ESQUERDA -->
+
+<div class="imagem-artista">
+
+<img
+
+id="imagemPreview"
+
+src=""
+
+alt="Artista"
+
+>
+
+<input
+
+type="file"
+
+id="imagemInput"
+
+accept="image/*"
+
+hidden
+
+>
+
+<button id="alterarImagem">
+
+<i class="fa-solid fa-camera"></i>
+
+ALTERAR IMAGEM
+
+</button>
+
+<p>
+
+Formatos aceitos:
+
+JPG,
+
+PNG.
+
+Máx. 5MB
+
+</p>
+
+</div>
+
+<!-- COLUNA DIREITA -->
+
+<div class="formulario">
+
+<label>
+
+NOME COMPLETO
+
+</label>
+
+<input
+
+id="nome"
+
+type="text"
+
+>
+
+<div class="duas-colunas">
+
+<div>
+
+<label>
+
+NASCIMENTO
+
+</label>
+
+<input
+
+id="nascimento"
+
+type="text"
+
+>
+
+</div>
+
+<div>
+
+<label>
+
+MORTE
+
+</label>
+
+<input
+
+id="morte"
+
+type="text"
+
+>
+
+</div>
+
+</div>
+
+<label>
+
+DESCRIÇÃO
+
+</label>
+
+<textarea
+
+id="descricao"
+
+rows="7"
+
+></textarea>
+
+</div>
+
+</div>
+
+<div class="linha-modal-inferior"></div>
+
+<div class="botoes-modal">
+
+<button id="cancelar">
+
+CANCELAR
+
+</button>
+
+<button id="salvar">
+
+SALVAR ALTERAÇÕES
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div
+
+id="alerta"
+
+class="alerta"
+
+>
+
+<div class="alerta-box">
+
+<h3>
+
+Excluir artista?
+
+</h3>
+
+<p>
+
+Deseja realmente remover este artista?
+
+</p>
+
+<div class="alerta-botoes">
+
+<button id="naoExcluir">
+
+Cancelar
+
+</button>
+
+<button id="simExcluir">
+
+Excluir
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<div class="linha-footer"></div>
+
+<div class="redes">
+
+<a href="#">
+
+<i class="fa-brands fa-instagram"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fa-brands fa-facebook-f"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fa-brands fa-x-twitter"></i>
+
+</a>
+
+</div>
+
+
+</footer>
+
+<script src="js/artistas.js"></script>
+
+</body>
+
+</html>
