@@ -75,18 +75,21 @@ nav a.ativo::after {
 
 .banner {
     position: relative;
-    background: linear-gradient(rgba(12, 13, 14, 0.82), rgba(12, 13, 14, 0.82)),
-                url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600') center/cover no-repeat;
+     background-image:url("../obras5.jpg");
     padding: 4.5rem 2rem 3.5rem;
     text-align: center;
+    width:100%;
+    height:420px;
 }
 
 .banner-conteudo h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    letter-spacing: 6px;
-    color: var(--text-white);
-    font-weight: 500;
+    font-family:'Cinzel',serif;
+     font-size:4rem;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:3px;
+    margin-bottom:20px;
+    text-shadow:0 5px 20px rgba(0,0,0,.5);
 }
 
 .linha-dourada-losango {
@@ -116,31 +119,35 @@ nav a.ativo::after {
 }
 
 .linha-dourada-losango::nth-child(2) {
-    width: 6px;
+    width: 10px;
 }
 
 .linha-dourada-losango {
-    height: 1px;
+    width:260px;
+    height:2px;
     background: var(--gold-primary);
-    opacity: 0.5;
+    margin:0 auto 30px;
     position: relative;
 }
 
 .linha-dourada-losango::before {
-    content: '';
+    content:"";
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
     background-color: var(--gold-primary);
 }
 
 .banner-conteudo p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 300;
+   width:470px;
+    max-width:90%;
+    margin:auto;
+    color:#ECECEC;
+    font-size:1.2rem;
+    line-height:1.8;
 }
 
 .filtros-container {
