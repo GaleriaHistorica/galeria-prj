@@ -84,17 +84,6 @@ img{    display:block;    width:100%;}
     font-size:1.5rem;
     animation:seta 2s infinite;
 }
-@keyframes seta{
-    0%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(12px);
-    }
-    100%{
-        transform:translateY(0);
-    }
-}
 
 .explorar{
     padding-top:90px;
