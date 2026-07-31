@@ -1,23 +1,8 @@
-/*==================================================
-    API
-==================================================*/
-
 const API_URL = "https://sua-api.com/artistas";
-
 let artistas = [];
 let artistasFiltrados = [];
-
-/*==================================================
-    ELEMENTOS
-==================================================*/
-
 const listaArtistas = document.getElementById("listaArtistas");
 const campoPesquisa = document.getElementById("buscar");
-
-/*==================================================
-    CARREGAR ARTISTAS
-==================================================*/
-
 async function carregarArtistas(){
 
     try{
@@ -57,10 +42,6 @@ async function carregarArtistas(){
     }
 
 }
-
-/*==================================================
-    RENDERIZAR
-==================================================*/
 
 function renderizarArtistas(lista){
 
@@ -118,10 +99,6 @@ function renderizarArtistas(lista){
 
 }
 
-/*==================================================
-    PESQUISA
-==================================================*/
-
 campoPesquisa.addEventListener("input", ()=>{
 
     const texto = campoPesquisa.value.toLowerCase();
@@ -136,42 +113,20 @@ campoPesquisa.addEventListener("input", ()=>{
 
 });
 
-/*==================================================
-    INICIAR
-==================================================*/
-
 carregarArtistas();
-/*==================================================
-    MODAL
-==================================================*/
 
 const modal = document.getElementById("modal");
-
 const fecharModal = document.getElementById("fecharModal");
-
 const cancelar = document.getElementById("cancelar");
-
 const salvar = document.getElementById("salvar");
-
 const nomeInput = document.getElementById("nome");
-
 const nascimentoInput = document.getElementById("nascimento");
-
 const morteInput = document.getElementById("morte");
-
 const descricaoInput = document.getElementById("descricao");
-
 const imagemPreview = document.getElementById("imagemPreview");
-
 const imagemInput = document.getElementById("imagemInput");
-
 const alterarImagem = document.getElementById("alterarImagem");
-
 let artistaSelecionado = null;
-
-/*==================================================
-    ABRIR MODAL
-==================================================*/
 
 listaArtistas.addEventListener("click",(evento)=>{
 
@@ -205,42 +160,26 @@ listaArtistas.addEventListener("click",(evento)=>{
 
 });
 
-/*==================================================
-    PREENCHER MODAL
-==================================================*/
-
 function preencherModal(artista){
 
     nomeInput.value = artista.nome;
-
     nascimentoInput.value = artista.nascimento;
-
     morteInput.value = artista.morte;
-
     descricaoInput.value = artista.descricao;
-
     imagemPreview.src = artista.imagem;
-
     modal.classList.add("ativo");
 
 }
 
-/*==================================================
-    FECHAR MODAL
-==================================================*/
-
 function fechar(){
 
     modal.classList.remove("ativo");
-
     imagemInput.value = "";
 
 }
 
 fecharModal.addEventListener("click",fechar);
-
 cancelar.addEventListener("click",fechar);
-
 modal.addEventListener("click",(evento)=>{
 
     if(evento.target === modal){
@@ -250,10 +189,6 @@ modal.addEventListener("click",(evento)=>{
     }
 
 });
-
-/*==================================================
-    ALTERAR IMAGEM
-==================================================*/
 
 alterarImagem.addEventListener("click",()=>{
 
@@ -283,10 +218,6 @@ imagemInput.addEventListener("change",(evento)=>{
 
 });
 
-/*==================================================
-    SALVAR ALTERAÇÕES
-==================================================*/
-
 salvar.addEventListener("click", async ()=>{
 
     if(!artistaSelecionado){
@@ -296,44 +227,16 @@ salvar.addEventListener("click", async ()=>{
     }
 
     artistaSelecionado.nome = nomeInput.value;
-
     artistaSelecionado.nascimento = nascimentoInput.value;
-
     artistaSelecionado.morte = morteInput.value;
-
     artistaSelecionado.descricao = descricaoInput.value;
-
     artistaSelecionado.imagem = imagemPreview.src;
 
     atualizarCard(artistaSelecionado);
 
-    /*
-        Quando utilizar uma API CRUD,
-        basta descomentar e ajustar o endpoint:
-
-        await fetch(`${API_URL}/${artistaSelecionado.id}`,{
-
-            method:"PUT",
-
-            headers:{
-
-                "Content-Type":"application/json"
-
-            },
-
-            body:JSON.stringify(artistaSelecionado)
-
-        });
-
-    */
-
     fechar();
 
 });
-
-/*==================================================
-    ATUALIZAR CARD
-==================================================*/
 
 function atualizarCard(artista){
 
@@ -360,19 +263,12 @@ function atualizarCard(artista){
     card.querySelector("p").textContent = artista.descricao;
 
 }
-/*==================================================
-    ALERTA DE EXCLUSÃO
-==================================================*/
 
 const alerta = document.getElementById("alerta");
 const btnCancelarExclusao = document.getElementById("naoExcluir");
 const btnConfirmarExclusao = document.getElementById("simExcluir");
 
 let artistaExcluir = null;
-
-/*==================================================
-    ABRIR ALERTA
-==================================================*/
 
 listaArtistas.addEventListener("click",(evento)=>{
 
@@ -385,67 +281,37 @@ listaArtistas.addEventListener("click",(evento)=>{
     }
 
     evento.stopPropagation();
-
     artistaExcluir = Number(botao.dataset.id);
-
     alerta.classList.add("ativo");
 
 });
 
-/*==================================================
-    CANCELAR
-==================================================*/
-
 btnCancelarExclusao.addEventListener("click",()=>{
-
     alerta.classList.remove("ativo");
-
     artistaExcluir = null;
 
 });
 
-/*==================================================
-    CONFIRMAR EXCLUSÃO
-==================================================*/
-
 btnConfirmarExclusao.addEventListener("click", async ()=>{
-
     if(artistaExcluir === null){
-
         return;
 
     }
 
     try{
 
-        /*
-        Caso utilize MockAPI, Firebase ou Supabase,
-        basta descomentar este trecho.
-
-        await fetch(`${API_URL}/${artistaExcluir}`,{
-
-            method:"DELETE"
-
-        });
-
-        */
-
         artistas = artistas.filter(
-
             artista => artista.id !== artistaExcluir
 
         );
 
         artistasFiltrados = artistasFiltrados.filter(
-
             artista => artista.id !== artistaExcluir
 
         );
 
         renderizarArtistas(artistasFiltrados);
-
         mostrarMensagem(
-
             "Artista removido com sucesso."
 
         );
@@ -455,9 +321,7 @@ btnConfirmarExclusao.addEventListener("click", async ()=>{
     catch(error){
 
         mostrarMensagem(
-
             "Erro ao remover artista.",
-
             true
 
         );
@@ -472,9 +336,6 @@ btnConfirmarExclusao.addEventListener("click", async ()=>{
 
 });
 
-/*==================================================
-    FECHAR ALERTA CLICANDO FORA
-==================================================*/
 
 alerta.addEventListener("click",(evento)=>{
 
@@ -485,10 +346,6 @@ alerta.addEventListener("click",(evento)=>{
     }
 
 });
-
-/*==================================================
-    TOAST
-==================================================*/
 
 function mostrarMensagem(texto,erro=false){
 
@@ -526,10 +383,6 @@ function mostrarMensagem(texto,erro=false){
 
 }
 
-/*==================================================
-    ANIMAÇÃO DOS CARDS
-==================================================*/
-
 const observer = new IntersectionObserver((entries)=>{
 
     entries.forEach((entry)=>{
@@ -556,9 +409,6 @@ function observarCards(){
 
 }
 
-/*==================================================
-    RECRIAR OBSERVER
-==================================================*/
 
 const renderizarOriginal = renderizarArtistas;
 
@@ -569,10 +419,6 @@ renderizarArtistas = function(lista){
     observarCards();
 
 };
-
-/*==================================================
-    INICIAR
-==================================================*/
 
 window.addEventListener("load",()=>{
 
