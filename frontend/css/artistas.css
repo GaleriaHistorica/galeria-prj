@@ -568,3 +568,36 @@ footer p{
     transition:.6s;
 
 }
+
+.pesquisa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.campo-pesquisa {
+  flex: 1;
+}
+
+.btn-novo-artista {
+  background-color: #c9a050; /* Cor padrão dourada da galeria */
+  color: #111;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-novo-artista:hover {
+  background-color: #b38b3f;
+}

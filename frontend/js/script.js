@@ -6,7 +6,6 @@ if (btnEntrar) {
     });
 }
 
-// =============================== abrir containers ===============================
 function abrirPagina(pagina){
     window.location.href = pagina;
 }
