@@ -2,23 +2,19 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras | Galeria de Artes</title>
 
-    <title>Artistas | Galeria de Artes</title>
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/obras.css">
 </head>
 
@@ -34,7 +30,7 @@
             <li><a href="../index.html">INÍCIO</a></li>
             <li><a class="ativo" href="../pages/obras.html">OBRAS</a></li>
             <li><a href="../pages/artistas.html">ARTISTAS</a></li>
-            <li><a href="../pages/estilohistorico.html">PERÍODOS HISTÓRICOS</a></li>
+            <li><a href="periodos.html">PERÍODOS HISTÓRICOS</a></li>
         </ul>
     </nav>
 </header>
@@ -70,11 +66,19 @@
     </div>
 </section>
 
+<!-- NOVA SEÇÃO: AÇÕES DA PÁGINA (BOTÃO ADICIONAR OBRA) -->
+<section class="acoes-container">
+    <button id="btnAbrirAdicionar" class="btn-adicionar">
+        <i class="fa-solid fa-plus"></i> ADICIONAR OBRA
+    </button>
+</section>
+
 <main>
     <div id="listaObras" class="grid-obras">
     </div>
 </main>
 
+<!-- MODAL DE CADASTRO / EDIÇÃO -->
 <div class="modal" id="modalObra">
     <div class="modal-content">
         
@@ -82,7 +86,7 @@
             <i class="fa-solid fa-xmark"></i>
         </button>
 
-        <h2>EDITAR OBRA</h2>
+        <h2 id="tituloModal">ADICIONAR OBRA</h2>
         <div class="linha-dourada-losango"></div>
 
         <form id="formObra" class="modal-grid">
@@ -90,11 +94,11 @@
             <div class="coluna-imagem">
                 <label class="label-titulo">IMAGEM DA OBRA</label>
                 <div class="preview-box">
-                    <img id="imagemPreview" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/The_Starry_Night_by_Vincent_van_Gogh.jpg/1280px-The_Starry_Night_by_Vincent_van_Gogh.jpg" alt="A Noite Estrelada">
+                    <img id="imagemPreview" src="https://via.placeholder.com/300x300/141618/8e949d?text=Sem+Imagem" alt="Preview da Obra">
                 </div>
                 <input type="file" id="imagemInput" accept="image/*" hidden>
                 <button type="button" id="btnAlterarImagem" class="btn-outline">
-                    <i class="fa-solid fa-camera"></i> ALTERAR IMAGEM
+                    <i class="fa-solid fa-camera"></i> SELECIONAR IMAGEM
                 </button>
                 <p class="instrucoes-file">Formatos aceitos: JPG, PNG. Máx. 5MB</p>
             </div>
@@ -102,25 +106,27 @@
             <div class="coluna-campos">
                 
                 <div class="campo-grupo">
-                    <label for="selectArtista">ARTISTA</label>
+                    <label for="selectArtista">ARTISTA *</label>
                     <div class="custom-select modal-select">
-                        <select id="selectArtista">
+                        <select id="selectArtista" required>
+                            <option value="">Selecione um artista...</option>
                             <option value="vincent">Vincent van Gogh</option>
                             <option value="leonardo">Leonardo da Vinci</option>
+                            <option value="botticelli">Sandro Botticelli</option>
                         </select>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                 </div>
 
                 <div class="campo-grupo">
-                    <label for="nomeObra">NOME DA OBRA</label>
-                    <input type="text" id="nomeObra" value="A Noite Estrelada">
+                    <label for="nomeObra">NOME DA OBRA *</label>
+                    <input type="text" id="nomeObra" placeholder="Ex: A Noite Estrelada" required>
                 </div>
 
                 <div class="campo-grupo">
-                    <label for="dataObra">DATA</label>
-                    <input type="text" id="dataObra" value="1889">
-                    <span class="dica-input">Informe o ano ou período da obra.</span>
+                    <label for="dataObra">DATA *</label>
+                    <input type="text" id="dataObra" placeholder="Ex: 1889" required>
+                    <span class="dica-input">Informe o ano ou período (apenas números ou hífen).</span>
                 </div>
 
             </div>
@@ -130,13 +136,13 @@
 
         <div class="botoes-modal">
             <button type="button" class="btn-cancelar">CANCELAR</button>
-            <button type="submit" form="formObra" class="btn-salvar">SALVAR ALTERAÇÕES</button>
+            <button type="submit" form="formObra" class="btn-salvar">SALVAR OBRA</button>
         </div>
 
     </div>
 </div>
 
-<script src="js/obras.js"></script>
+<script src="../js/obras.js"></script>
 </body>
 
 </html>
