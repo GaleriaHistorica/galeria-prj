@@ -1,7 +1,9 @@
+/* ==========================================
+   RESET & VARIÁVEIS (DARK GOLD THEME)
+   ========================================== */
 :root {
     --bg-dark: #0c0d0e;
     --bg-card: #141618;
-    --bg-input: #111315;
     --border-color: #26292d;
     --gold-primary: #d4af37;
     --gold-hover: #b8952b;
@@ -25,6 +27,9 @@ body {
     min-height: 100vh;
 }
 
+/* ==========================================
+   HEADER
+   ========================================== */
 header {
     display: flex;
     justify-content: space-between;
@@ -73,86 +78,59 @@ nav a.ativo::after {
     background-color: var(--gold-primary);
 }
 
+/* ==========================================
+   BANNER
+   ========================================== */
 .banner {
     position: relative;
-     background-image:url("../obras5.jpg");
+    background: linear-gradient(rgba(12, 13, 14, 0.85), rgba(12, 13, 14, 0.85)),
+                url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1600') center/cover no-repeat;
     padding: 4.5rem 2rem 3.5rem;
     text-align: center;
-    width:100%;
-    height:420px;
 }
 
 .banner-conteudo h1 {
-    font-family:'Cinzel',serif;
-     font-size:4rem;
-    font-weight:600;
-    line-height:1.08;
-    letter-spacing:3px;
-    margin-bottom:20px;
-    text-shadow:0 5px 20px rgba(0,0,0,.5);
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    letter-spacing: 6px;
+    color: var(--text-white);
+    font-weight: 500;
 }
 
+/* Divisor Dourado com Losango */
 .linha-dourada-losango {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 1px;
+    background: var(--gold-primary);
+    opacity: 0.5;
+    position: relative;
     margin: 1.2rem auto;
     width: 100%;
     max-width: 400px;
-    position: relative;
 }
 
-.linha-dourada-losango::before,
-.linha-dourada-losango::after {
+.linha-dourada-losango::before {
     content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.4), transparent);
-}
-
-.linha-dourada-losango::before {
-    background: linear-gradient(to right, transparent, var(--gold-primary));
-}
-
-.linha-dourada-losango::after {
-    background: linear-gradient(to left, transparent, var(--gold-primary));
-}
-
-.linha-dourada-losango::nth-child(2) {
-    width: 10px;
-}
-
-.linha-dourada-losango {
-    width:260px;
-    height:2px;
-    background: var(--gold-primary);
-    margin:0 auto 30px;
-    position: relative;
-}
-
-.linha-dourada-losango::before {
-    content:"";
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background-color: var(--gold-primary);
 }
 
 .banner-conteudo p {
-   width:470px;
-    max-width:90%;
-    margin:auto;
-    color:#ECECEC;
-    font-size:1.2rem;
-    line-height:1.8;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 300;
 }
 
+/* ==========================================
+   FILTROS E PESQUISA
+   ========================================== */
 .filtros-container {
     max-width: 1300px;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem;
     padding: 0 3rem;
     display: flex;
     justify-content: space-between;
@@ -223,6 +201,42 @@ nav a.ativo::after {
     pointer-events: none;
 }
 
+/* ==========================================
+   SEÇÃO AÇÕES (BOTÃO ADICIONAR OBRA)
+   ========================================== */
+.acoes-container {
+    max-width: 1300px;
+    margin: 1rem auto 1.5rem;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-adicionar {
+    background-color: var(--gold-primary);
+    color: #0c0d0e;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+}
+
+.btn-adicionar:hover {
+    background-color: var(--gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+}
+
+/* ==========================================
+   GRID E CARDS DE OBRAS
+   ========================================== */
 main {
     max-width: 1300px;
     margin: 0 auto 4rem;
@@ -231,8 +245,8 @@ main {
 
 .grid-obras {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
 .card-obra {
@@ -244,17 +258,17 @@ main {
 }
 
 .card-obra:hover {
-    transform: translateY(-3px);
-    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-5px);
+    border-color: var(--gold-primary);
 }
 
-.card-img-container {
+.card-thumb {
     width: 100%;
-    height: 180px;
+    height: 250px;
     overflow: hidden;
 }
 
-.card-img-container img {
+.card-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -266,23 +280,25 @@ main {
 
 .card-info h3 {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-white);
-    margin-bottom: 0.3rem;
-    font-weight: 500;
+    margin-bottom: 0.4rem;
 }
 
-.card-info .artista {
-    color: var(--text-muted);
-    font-size: 0.8rem;
+.artista-nome {
+    color: var(--gold-primary);
+    font-size: 0.85rem;
     margin-bottom: 0.2rem;
 }
 
-.card-info .data {
-    color: #616873;
+.obra-data {
+    color: var(--text-muted);
     font-size: 0.8rem;
 }
 
+/* ==========================================
+   MODAL EDITAR / CADASTRAR OBRA
+   ========================================== */
 .modal {
     position: fixed;
     top: 0;
@@ -310,7 +326,9 @@ main {
     border: 1px solid var(--gold-primary);
     border-radius: 8px;
     width: 90%;
-    max-width: 900px;
+    max-width: 850px;
+    max-height: 90vh;
+    overflow-y: auto;
     padding: 2.5rem;
     position: relative;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
@@ -341,10 +359,10 @@ main {
     font-weight: 400;
 }
 
-/* Form Layout */
+/* Structural Layout Form Modal */
 .modal-grid {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 2.5rem;
     margin-top: 2rem;
 }
@@ -358,12 +376,6 @@ main {
     font-weight: 600;
 }
 
-/* Coluna Imagem */
-.coluna-imagem {
-    display: flex;
-    flex-direction: column;
-}
-
 .preview-box {
     width: 100%;
     height: 220px;
@@ -371,6 +383,7 @@ main {
     overflow: hidden;
     margin-bottom: 1rem;
     border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
 }
 
 .preview-box img {
@@ -393,7 +406,7 @@ main {
     justify-content: center;
     gap: 0.6rem;
     transition: all 0.3s;
-    font-weight: 500;
+    width: 100%;
 }
 
 .btn-outline:hover {
@@ -408,17 +421,16 @@ main {
     margin-top: 0.8rem;
 }
 
-/* Coluna Campos */
 .coluna-campos {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 .campo-grupo {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .campo-grupo label {
@@ -432,11 +444,11 @@ main {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 0.85rem 1rem;
+    padding: 0.8rem 1rem;
     color: var(--text-white);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     outline: none;
-    transition: border-color 0.3s;
+    font-family: var(--font-body);
 }
 
 .campo-grupo input:focus {
@@ -449,7 +461,7 @@ main {
 
 .modal-select select {
     background-color: var(--bg-card);
-    padding: 0.85rem 1rem;
+    padding: 0.8rem 1rem;
 }
 
 .dica-input {
@@ -457,7 +469,6 @@ main {
     color: var(--text-muted);
 }
 
-/* Linha inferior e botões */
 .linha-dourada-losango.inferior {
     margin: 2rem 0 1.5rem;
 }
