@@ -93,23 +93,22 @@ nav a.ativo::after {
 }
 
 .linha-dourada-losango {
-    height: 1px;
+    height: 2px;
     background: var(--gold-primary);
     opacity: 0.5;
     position: relative;
-    margin: 1.2rem auto;
-    width: 100%;
-    max-width: 400px;
+    margin: 0 auto 30px;
+    width: 260px;
 }
 
 .linha-dourada-losango::before {
-    content: '';
+    content:"";
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
     background-color: var(--gold-primary);
 }
 
